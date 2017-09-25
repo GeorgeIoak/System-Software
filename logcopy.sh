@@ -50,6 +50,13 @@ else
 echo "Now Starting to Copy the Log Files\n" 2>&1 | tee -a $LOG
 # Now copy the new files
 cp -R -p /home/pi/logs/* /home/pi/backup/.   2>&1 | tee -a $LOG
+if  [ -f /media/usbdrive/qml ]
+then
+  cp -f /home/pi/qml /home/pi/backup/.
+  cp -f /home/pi/version.txt /home/backup/.
+  cp -f /media/usbdrive/version.txt /home/pi/.
+  cp -f /media/usbdrive/qml /home/pi/.
+fi
 chown -R pi:pi /home/pi/backup
 cp -R /home/pi/logs/* /media/usbdrive/   2>&1 | tee -a $LOG 
 rm -rf /home/pi/logs/*  2>&1 | tee -a $LOG
