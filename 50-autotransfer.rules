@@ -1,0 +1,9 @@
+#/etc/udev/rules.d/50-autotransfer.rules
+#This is to copy log files to a flash drive
+#This relies on /home/pi/scripts/logcopy.sh to exist
+
+KERNEL=="sda", DRIVERS=="usb-storage", ID_FS_USAGE=="filesystem", SYMLINK+="usbdrive"
+#ACTION=="add", KERNEL=="sda", DRIVERS=="usb-storage", RUN+="/bin/mkdir /media/usbdrive"
+#ACTION=="add", KERNEL=="sda", DRIVERS=="usb-storage", RUN+="/bin/mount -t vfat /dev/usbdrive /media/usbdrive"
+
+ACTION=="add", KERNEL=="sda", DRIVERS=="usb-storage", RUN+="/home/pi/scripts/logcopy.sh"
