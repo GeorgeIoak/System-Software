@@ -1,0 +1,13 @@
+#/etc/etc/systemd/system/splashscreen.service
+[Unit]
+Description=Splash screen
+DefaultDependencies=no
+After=local-fs.target
+
+[Service]
+ExecStart=/usr/bin/fbi -d /dev/fb0 --noverbose /opt/sonanutech-logo.png
+StandardInput=tty
+StandardOutput=tty
+
+[Install]
+WantedBy=sysinit.target

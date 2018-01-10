@@ -1192,10 +1192,8 @@
             pin@p133 { function = "output"; termination = "no_pulling"; }; // Camera shutdown
             pin@p134 { function = "output"; termination = "no_pulling"; }; // Camera LED
             pin@p135 { function = "input";  termination = "no_pulling"; polarity = "active_low"; }; // Power low
-            //SonanuTech custom pin defines
+            // SonanuTech custom pin defines
             pin@p4 { function = "input";  termination = "no_pulling"; polarity = "active_high"; }; // End Switch
-            pin@p14 { function = "uart0";  termination = "no_pulling"; drive_strength_mA = < 8 >; }; // TX uart0
-            pin@p15 { function = "uart0";  termination = "pull_up";    drive_strength_mA = < 8 >; }; // RX uart0
             pin@p17 { function = "input";  termination = "no_pulling"; polarity = "active_high"; }; // Start Switch
             pin@p18 { function = "output"; termination = "no_pulling"; }; // TRQ0
             pin@p27 { function = "output"; termination = "no_pulling"; }; // TRQ1
@@ -1206,14 +1204,15 @@
             pin@p9 { function = "output"; termination = "pull_down"; }; // Enable
             pin@p25 { function = "output"; termination = "no_pulling"; }; // DECAY0
             pin@p11 { function = "output"; termination = "no_pulling"; }; // DECAY1
-            pin@p8 { function = "input";  termination = "no_pulling"; polarity = "active_low"; }; // FAULT
+            pin@p8 { function = "input"; termination = "no_pulling"; polarity = "active_low"; }; // FAULT
             pin@p7 { function = "output"; termination = "pull_down"; }; // SLEEP
             pin@p5 { function = "output"; termination = "pull_down"; }; // TOFF
             pin@p6 { function = "output"; termination = "no_pulling"; }; // ATE
             pin@p19 { function = "output"; termination = "pull_down"; }; // Heater
             //pin@p26 { function = "input";  termination = "no_pulling";  }; // Temp
-            //pin@p20 { function = "input";  termination = "pull_up"; polarity = "active_low"; }; // Pi_GPIO20
+            //pin@p20 { function = "input"; termination = "pull_up"; polarity = "active_low"; }; // Pi_GPIO20
             //pin@p21 { function = "output"; termination = "pull_up"; startup_state = "active"; }; // Pi_GPIO21
+         }; // pin_config
 
          pin_defines {
             pin_define@HDMI_CONTROL_ATTACHED {
