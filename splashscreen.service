@@ -1,4 +1,4 @@
-#/etc/etc/systemd/system/splashscreen.service
+#/etc/systemd/system/splashscreen.service
 [Unit]
 Description=Splash screen
 DefaultDependencies=no
