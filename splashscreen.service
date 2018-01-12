@@ -1,4 +1,6 @@
 #/etc/systemd/system/splashscreen.service
+# Enable this service by running "sudo systemctl enable splashscreen"
+# Of course, don't forget to install fbi
 [Unit]
 Description=Splash screen
 DefaultDependencies=no

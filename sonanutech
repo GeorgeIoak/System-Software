@@ -1,5 +1,6 @@
 #!/bin/bash
 #/etc/init.d/sonanutech
+# install using "sudo update-rc.d sonanutech defaults"
 ### BEGIN INIT INFO
 # Provides:          sonanutech
 # Required-Start:    
