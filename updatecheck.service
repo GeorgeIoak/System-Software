@@ -1,0 +1,19 @@
+# Put this file in /etc/systemd/system
+# then run sudo systemctl enable updatecheck.service 
+
+[Unit]
+Description=SonanuTech Update Checker
+#Before=
+After=network-online.target
+#Requires=??.target
+
+[Service]
+Type=simple
+User=pi
+ExecStart=/home/pi/scripts/updatecheck.sh
+#ExecStop=
+#RemainAfterExit=no
+
+[Install]
+WantedBy=multi-user.target
+#RequiredBy=systemd-halt.service
