@@ -1,0 +1,105 @@
+Sat Jan 27 20:10:42 PST 2018
+
+----------------------------
+
+Loading system update screen
+
+using "Liberation Mono-16", pixelsize=21.33 file=/usr/share/fonts/truetype/liberation2/LiberationMono-Regular.ttf
+Sat Jan 27 20:10:42 PST 2018
+Ping results 1 failed
+
+Sat Jan 27 20:10:43 PST 2018
+Ping results 2 failed
+
+Sat Jan 27 20:10:44 PST 2018
+Ping results 3 failed
+
+Sat Jan 27 20:10:45 PST 2018
+Ping results 4 failed
+
+Sat Jan 27 20:10:46 PST 2018
+Ping results 5 failed
+
+Sat Jan 27 20:10:47 PST 2018
+Ping results 6 failed
+
+Sat Jan 27 20:10:48 PST 2018
+Ping results 7 failed
+
+Sat Jan 27 20:10:49 PST 2018
+Ping results 8 failed
+
+Sat Jan 27 20:10:50 PST 2018
+Ping results 9 passed
+
+We're online now
+
+--2018-01-27 20:10:51--  https://www.dropbox.com/s/e96lzqk1k6chj75/version.txt
+Resolving www.dropbox.com (www.dropbox.com)... 162.125.1.1, 2620:100:6016:1::a27d:101
+Connecting to www.dropbox.com (www.dropbox.com)|162.125.1.1|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://dl.dropboxusercontent.com/content_link/RlsrgDjdeLAXpNTptJlJxOvezhQRdGPRdOXf9769ABkaIuAB3o16dd6t0OZz7AdE/file [following]
+--2018-01-27 20:10:52--  https://dl.dropboxusercontent.com/content_link/RlsrgDjdeLAXpNTptJlJxOvezhQRdGPRdOXf9769ABkaIuAB3o16dd6t0OZz7AdE/file
+Resolving dl.dropboxusercontent.com (dl.dropboxusercontent.com)... 162.125.1.6, 2620:100:6016:6::a27d:106
+Connecting to dl.dropboxusercontent.com (dl.dropboxusercontent.com)|162.125.1.6|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 2 [text/plain]
+Saving to: ‘cloudversion.txt’
+
+     0K                                                       100%  368K=0s
+
+2018-01-27 20:10:52 (368 KB/s) - ‘cloudversion.txt’ saved [2/2]
+
+
+SonanuTech app was stopped
+
+Now Starting to Copy the new app
+
+--2018-01-27 20:10:54--  https://www.dropbox.com/s/6wssw5xa2ru7uh7/qml.tar
+Resolving www.dropbox.com (www.dropbox.com)... 162.125.1.1, 2620:100:6016:1::a27d:101
+Connecting to www.dropbox.com (www.dropbox.com)|162.125.1.1|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://dl.dropboxusercontent.com/content_link/LVDYfsETGTCk2IDVPmeifs8AwQxtptglhAWPQQn8VFjtoSdldPcW0lphGj88jdWt/file [following]
+--2018-01-27 20:10:54--  https://dl.dropboxusercontent.com/content_link/LVDYfsETGTCk2IDVPmeifs8AwQxtptglhAWPQQn8VFjtoSdldPcW0lphGj88jdWt/file
+Resolving dl.dropboxusercontent.com (dl.dropboxusercontent.com)... 162.125.1.6, 2620:100:6016:6::a27d:106
+Connecting to dl.dropboxusercontent.com (dl.dropboxusercontent.com)|162.125.1.6|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 389120 (380K) [application/x-tar]
+Saving to: ‘qml.tar’
+
+     0K .......... .......... .......... .......... .......... 13%  680K 0s
+    50K .......... .......... .......... .......... .......... 26% 1.40M 0s
+   100K .......... .......... .......... .......... .......... 39% 2.81M 0s
+   150K .......... .......... .......... .......... .......... 52% 2.89M 0s
+   200K .......... .......... .......... .......... .......... 65% 2.88M 0s
+   250K .......... .......... .......... .......... .......... 78% 3.67M 0s
+   300K .......... .......... .......... .......... .......... 92% 3.21M 0s
+   350K .......... .......... ..........                      100% 4.23M=0.2s
+
+2018-01-27 20:10:55 (1.90 MB/s) - ‘qml.tar’ saved [389120/389120]
+
+Now Starting to Copy the new checksum file
+
+--2018-01-27 20:10:55--  https://www.dropbox.com/s/0ukzp1a38dbnl1r/qml.md5
+Resolving www.dropbox.com (www.dropbox.com)... 162.125.1.1, 2620:100:6016:1::a27d:101
+Connecting to www.dropbox.com (www.dropbox.com)|162.125.1.1|:443... connected.
+HTTP request sent, awaiting response... 302 Found
+Location: https://dl.dropboxusercontent.com/content_link/TLUImSmferrp2An3TEdgTc43UaJCYTx58Arex6VMyhKZijjDazPaMM9oMMwfMIFs/file [following]
+--2018-01-27 20:10:55--  https://dl.dropboxusercontent.com/content_link/TLUImSmferrp2An3TEdgTc43UaJCYTx58Arex6VMyhKZijjDazPaMM9oMMwfMIFs/file
+Resolving dl.dropboxusercontent.com (dl.dropboxusercontent.com)... 162.125.1.6, 2620:100:6016:6::a27d:106
+Connecting to dl.dropboxusercontent.com (dl.dropboxusercontent.com)|162.125.1.6|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 38 [text/plain]
+Saving to: ‘qml.md5’
+
+     0K                                                       100% 4.97M=0s
+
+2018-01-27 20:10:56 (4.97 MB/s) - ‘qml.md5’ saved [38/38]
+
+Now going to validate the download
+
+Good download, checksums match
+
+Starting the new app now
+
+The new app is running now
