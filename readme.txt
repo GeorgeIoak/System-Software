@@ -6,3 +6,6 @@ sudo cp sonanutech-logo.png /usr/share/plymouth/themes/pix/splash.png
 to run qml at startup:
 
 sudo update-rc.d sonanutech defaults
+
+mkdir /home/pi/scripts/download
+mkdir /home/pi/logs
