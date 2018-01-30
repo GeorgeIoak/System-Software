@@ -33,7 +33,6 @@ copyfiles() {
   mv -f /home/pi/analyse /home/pi/backup/.
   mv -f "$dldir"/analyse /home/pi.
   cp -f "$dldir"/cloudversion.txt /home/pi/version.txt
-  cleanup
 }
 
 startnewapp() {
@@ -66,11 +65,12 @@ then
   sudo service sonanutech stop | tee -a $LOG
   echo -e "\nSonanuTech app was stopped\n"  2>&1 | tee -a $LOG
   copyfiles
+  cleanup
   startnewapp
-else
-  #Need to check if an update is available
+  goodbye
 fi
 
+#Need to check if an update is available
 # Load System Update Check Screen
 echo -e "Loading system update screen\n" 2>&1 | tee -a $LOG
 sudo /usr/bin/fbi -T 3 -d /dev/fb0 --noverbose /opt/sonanutech-checking.png 2>&1 | tee -a $LOG
@@ -102,7 +102,7 @@ else
 fi
 
 # Get latest version number from the internet
-wget -O cloudversion.txt $versionlink 2>&1 | tee -a $LOG
+wget -N -O cloudversion.txt $versionlink 2>&1 | tee -a $LOG
 if  [ "$?" != 0 ]
 then
   echo -e "Version File not found online\n" 2>&1 | tee -a $LOG
@@ -122,7 +122,7 @@ then
 fi
 
 echo -e "Now Starting to dowload the new app\n" 2>&1 | tee -a $LOG
-wget $qmllink 2>&1 | tee -a $LOG
+wget -N $qmllink 2>&1 | tee -a $LOG
 if  [ "$?" != 0 ]
 then
   echo -e "Problem getting new app file\n" 2>&1 | tee -a $LOG
@@ -134,7 +134,7 @@ else
 fi
 
 echo -e "Now downloading the qml checksum file\n" 2>&1 | tee -a $LOG
-wget $qmlMD5link 2>&1 | tee -a $LOG
+wget -N $qmlMD5link 2>&1 | tee -a $LOG
 if  [ "$?" != 0 ]
 then
   echo -e "Problem getting qml MD5 file\n" 2>&1 | tee -a $LOG
@@ -145,7 +145,7 @@ else
 fi
 
 echo -e "Now downloading the analyse checksum file\n" 2>&1 | tee -a $LOG
-wget $analyseMD5link 2>&1 | tee -a $LOG
+wget -N $analyseMD5link 2>&1 | tee -a $LOG
 if  [ "$?" != 0 ]
 then
   echo -e "Problem getting analyse MD5 file\n" 2>&1 | tee -a $LOG
