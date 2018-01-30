@@ -2,7 +2,7 @@
 #
 #/home/pi/scripts/updatecheck.sh
 # Used to check if a new version is available
-# UDEV Rule calls this script
+# updatecheck.service calls this script
 LOG=/home/pi/scripts/debug.log
 upfile=/home/pi/scripts/download/ready-for-update
 dldir=/home/pi/scripts/download
@@ -29,9 +29,10 @@ goodbye() {
 
 copyfiles() {
   mv -f /home/pi/qml /home/pi/backup/.
-  mv -f "$dldir"/qml /home/pi/.
   mv -f /home/pi/analyse /home/pi/backup/.
-  mv -f "$dldir"/analyse /home/pi.
+  mv -f /home/pi/version.txt /home/pi/backup/.
+  mv -f "$dldir"/qml /home/pi/.
+  mv -f "$dldir"/analyser /home/pi/.
   cp -f "$dldir"/cloudversion.txt /home/pi/version.txt
 }
 
@@ -47,6 +48,9 @@ startnewapp() {
       # like maybe copy back the old version and check
       # for now just try again
       sudo service sonanutech stop
+      cp -f /home/pi/backup/qml /home/pi/.
+      cp -f /home/pi/backup/analyse /home/pi/.
+      cp -f /home/pi/backup/version.txt /home/pi/.
       sudo service sonanutech start
       cd /home/pi
     else
@@ -59,8 +63,8 @@ echo -e "\n----------------------------\n"  2>&1 | tee -a $LOG
 
 if [ -f "$upfile" ]
 then
-  #Update was downloaded, time to install
-  # Stop the app
+  # Update was downloaded, time to install
+  # Change the splash screen and stop the app
   sudo /usr/bin/fbi -T 3 -d /dev/fb0 --noverbose /opt/sonanutech-updating.png 2>&1 | tee -a $LOG
   sudo service sonanutech stop | tee -a $LOG
   echo -e "\nSonanuTech app was stopped\n"  2>&1 | tee -a $LOG
@@ -70,8 +74,7 @@ then
   goodbye
 fi
 
-#Need to check if an update is available
-# Load System Update Check Screen
+# Downloads aren't available so we need to check if an update is available
 echo -e "Loading system update screen\n" 2>&1 | tee -a $LOG
 sudo /usr/bin/fbi -T 3 -d /dev/fb0 --noverbose /opt/sonanutech-checking.png 2>&1 | tee -a $LOG
 
@@ -129,7 +132,7 @@ then
   cleanup
   goodbye
 else
-  #files has full paths that I want to remove and extract here
+  # Files have full paths so remove path and extract here
   tar -xf qml.tar -C . --strip-components=2 2>&1 | tee -a $LOG
 fi
 
@@ -156,30 +159,26 @@ else
 fi
 
 echo -e "Now going to validate the qml download\n" 2>&1 | tee -a $LOG
-#Compare checksums
+# Compare checksums
 md5sum --status -c qml.md5
 if [ "$?" != 0 ]
 then
-    # The MD5 sum didn't match
     echo -e "Bad qml download, checksums don't match\n" 2>&1 | tee -a $LOG
     cleanup
     goodbye
 else
-    # The qml MD5 sum matched
     echo -e "Good download, qml checksums match\n" 2>&1 | tee -a $LOG
 fi
 
 echo -e "Now going to validate the analyse download\n" 2>&1 | tee -a $LOG
-#Compare checksums
+# Compare checksums
 md5sum --status -c analyse.md5
 if [ "$?" != 0 ]
 then
-    # The MD5 sum didn't match
     echo -e "Bad analyse download, checksums don't match\n" 2>&1 | tee -a $LOG
     cleanup
     goodbye
 else
-    # The analyse MD5 sum matched
     echo -e "Good download, analyse checksums match\n" 2>&1 | tee -a $LOG
 fi
 
