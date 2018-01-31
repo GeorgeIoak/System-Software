@@ -24,6 +24,7 @@ int main(int argc, const char * argv[])
     double summ;
     double sum2;
     int bar[3][3];   // stores counts for green, yellow and red bars for each channel
+    std::string message;
         
     /*
      * All input is given via stdin
@@ -158,8 +159,11 @@ if (ndataPoints>endStdDev)
                     if (counter >= neededSteps) // Enough steps found
                     {
                         if (value < 0.75*firstValue)
+			   {
                             //      return WarningDecreasedDifference;
                             std::cerr << "Warning: Difference has decreased for sample " << (i+1) << std::endl;  // Issue an error code 1
+                            message = "Warning: Difference has decreased for sample " + std::to_string(i+1);
+			   }
                         else
                             
                             if (done==0)
@@ -186,6 +190,7 @@ if (ndataPoints>endStdDev)
                     {
                         // res = WarningControlGreaterThanSample;
                         std::cerr << "Warning: Sample is less than the control for sample " << (i+1) << std::endl;  // Issue error code 2
+                        message = "Warning: Sample is less than the control for sample " + std::to_string(i+1);
                     }
                 }
                 
@@ -233,7 +238,8 @@ if (ndataPoints>endStdDev)
          * The output must end with a line reading "end".
          */
         
-        std::string message = "Hello World!";
+        //std::string message = "Hello World!";
+	//std::string message = message;
         std::cout << "message" << std::endl;                                                // header for message
         std::cout << message << std::endl;                                                  // message on one line
     
