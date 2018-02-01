@@ -28,6 +28,9 @@ updatecheck.service
 config.txt #need to add the core_freq=250
 cmdline.txt
 
+
+sudo chown root:root config.txt
+sudo chown root:root cmdline.txt
 sudo mv -f /home/pi/temp/config.txt /boot/.
 sudo mv -f /home/pi/temp/cmdline.txt /boot/.
 
@@ -36,27 +39,33 @@ mv -f /home/pi/temp/logcopy.sh /home/pi/scripts/.
 mv -f /home/pi/temp/myshutdown.sh /home/pi/scripts/.
 mv -f /home/pi/temp/updatecheck.sh /home/pi/scripts/.
 
-mv -f /home/pi/temp/qml /home/pi/.
-mv -f /home/pi/temp/analyse /home/pi.
+sudo service sonanutech status
+sudo service sonanutech stop
 
+mv -f /home/pi/temp/qml /home/pi/.
+mv -f /home/pi/temp/analyse /home/pi/.
+
+#Check, they should already be executable
 chmod +x /home/pi/scripts/logcopy.sh
 chmod +x /home/pi/scripts/myshutdown.sh
 chmod +x /home/pi/scripts/updatecheck.sh
 
 #Verify that qml and analyse are executeable
 
-nano /home/pi/version.txt #Should be 201
+#nano /home/pi/version.txt #Should be 201
+mv -f /home/pi/temp/version.txt /home/pi/.
 
+mkdir -p /home/pi/.config/sonanutech
 mv -f /home/pi/temp/cheese.conf /home/pi/.config/sonanutech/cheese.conf
 
 #might need to be sudo to move but then change owner to pi
 
-mv -f /home/pi/temp/sonanutech-checking.png /opt/.
-mv -f /home/pi/temp/sonanutech-logo.png /opt/. 
-mv -f /home/pi/temp/sonanutech-shutdown.png /opt/. 
-mv -f /home/pi/temp/sonanutech-updating.png /opt/.
+sudo mv -f /home/pi/temp/sonanutech-checking.png /opt/.
+sudo mv -f /home/pi/temp/sonanutech-logo.png /opt/. 
+sudo mv -f /home/pi/temp/sonanutech-shutdown.png /opt/. 
+sudo mv -f /home/pi/temp/sonanutech-updating.png /opt/.
 
-#chown pi:pi /opt/*.png
+sudo chown pi:pi /opt/*.png
 
 sudo apt-get install fbi
 
