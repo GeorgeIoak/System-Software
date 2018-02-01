@@ -64,5 +64,7 @@ disable_splash=1 #Disables color test
 
 #Added 12/16/17
 dtoverlay=gpio-poweroff,gpiopin=21,active_low="y"
-dtoverlay=pi3-miniuart-bt
+#dtoverlay=pi3-miniuart-bt
+#cpu_freq=250
+dtoverlay=pi3-disable-bt
 dtoverlay=gpio-shutdown,gpio_pin=20

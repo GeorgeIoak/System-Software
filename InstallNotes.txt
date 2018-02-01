@@ -1,0 +1,68 @@
+Install Notes:
+
+mkdir -p /home/pi/scripts
+mkdir -p /home/pi/scripts/download
+mkdir -p /home/pi/logs
+mkdir -p /home/pi/backup
+
+mkdir -p /home/pi/temp #file storage
+
+#copy files
+tar xf System Software.tar
+
+analyse
+qml
+version.txt
+50-autotransfer.rules
+cheese.conf
+logcopy.sh
+myshutdown.sh
+updatecheck.sh
+sonanutech
+sonanutech-checking.png
+sonanutech-logo.png 
+sonanutech-shutdown.png 
+sonanutech-updating.png
+splashscreen.service
+updatecheck.service
+
+
+
+mv -f /home/pi/temp/logcopy.sh /home/pi/scripts/.
+mv -f /home/pi/temp/myshutdown.sh /home/pi/scripts/.
+mv -f /home/pi/temp/updatecheck.sh /home/pi/scripts/.
+
+mv -f /home/pi/temp/qml /home/pi/.
+mv -f /home/pi/temp/analyse /home/pi.
+
+chmod +x /home/pi/scripts/logcopy.sh
+chmod +x /home/pi/scripts/myshutdown.sh
+chmod +x /home/pi/scripts/updatecheck.sh
+
+#Verify that qml and analyse are executeable
+
+nano /home/pi/version.txt #Should be 201
+
+mv -f /home/pi/temp/cheese.conf /home/pi/.config/sonanutech/cheese.conf
+
+#might need to be sudo to move but then change owner to pi
+
+mv -f /home/pi/temp/sonanutech-checking.png /opt/.
+mv -f /home/pi/temp/sonanutech-logo.png /opt/. 
+mv -f /home/pi/temp/sonanutech-shutdown.png /opt/. 
+mv -f /home/pi/temp/sonanutech-updating.png /opt/.
+
+#chown pi:pi /opt/*.png
+
+sudo apt-get install fbi
+
+sudo mv -f /home/pi/temp/sonanutech /etc/init.d/.
+
+sudo mv -f /home/pi/temp/splashscreen.service /etc/systemd/system/.
+sudo systemctl enable splashscreen
+
+sudo mv -f /home/pi/temp/updatecheck.service /etc/systemd/system/.
+sudo systemctl enable updatecheck.service
+
+sudo mv -f /home/pi/temp/50-autotransfer.rules /etc/udev/rules.d/.
+
