@@ -25,7 +25,11 @@ sonanutech-shutdown.png
 sonanutech-updating.png
 splashscreen.service
 updatecheck.service
+config.txt #need to add the core_freq=250
+cmdline.txt
 
+sudo mv -f /home/pi/temp/config.txt /boot/.
+sudo mv -f /home/pi/temp/cmdline.txt /boot/.
 
 
 mv -f /home/pi/temp/logcopy.sh /home/pi/scripts/.
