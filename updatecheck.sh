@@ -32,7 +32,7 @@ copyfiles() {
   mv -f /home/pi/analyse /home/pi/backup/.
   mv -f /home/pi/version.txt /home/pi/backup/.
   mv -f "$dldir"/qml /home/pi/.
-  mv -f "$dldir"/analyser /home/pi/.
+  mv -f "$dldir"/analyse /home/pi/.
   cp -f "$dldir"/cloudversion.txt /home/pi/version.txt
 }
 
